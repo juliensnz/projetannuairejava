@@ -9,6 +9,9 @@ public class Console {
 
 	List<Annuaire>	listeAnnuaires	= new ArrayList<Annuaire>();
 
+	/**
+	 * Constructeur de la console. Création de relais de démonstration
+	 */
 	public Console() throws RelaisException {
 		Annuaire annuaire = new Annuaire();
 		annuaire.ajouterRelais(12, 6, "Nantes");
@@ -42,10 +45,16 @@ public class Console {
 		this.menuPrincipal();
 	}
 
+	/**
+	 * Lance l'éxécution d'une console.
+	 */
 	public static void lancer() throws RelaisException {
 		new Console();
 	}
 
+	/**
+	 * Affichage du menu principal.
+	 */
 	public void menuPrincipal() {
 		System.out.println("1. Ajouter un annuaire");
 		System.out.println("2. Utiliser / Editer un annuaire");
@@ -101,6 +110,9 @@ public class Console {
 		}
 	}
 
+	/**
+	 * Fonction permettant d'ajouter un annuaire (dans las console)
+	 */
 	public void ajouterAnnuaire(Annuaire annuaire) {
 		this.listeAnnuaires.add(annuaire);
 		System.out.println("Un annuaire a étéŽ crééŽŽ.");

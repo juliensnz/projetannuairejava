@@ -4,8 +4,14 @@ import app.Relais;
 import app.Service;
 import exceptions.RelaisException;
 
+/**
+ * Interface en ligne de commande pour un relais.
+ */
 public abstract class InterfaceRelais extends Interface {
 
+	/**
+	 * Affiche un relais et si cela est demandé, ses coordonnées et ses services.
+	 */
 	public static void afficher(Relais r, boolean coord, boolean serv) {
 		System.out.println("- " + r.getNom() + " :");
 		if (coord) {
@@ -18,6 +24,9 @@ public abstract class InterfaceRelais extends Interface {
 		System.out.println("*****************");
 	}
 
+	/**
+	 * Affiche les services d'un relais et leur horaires de disponibilitŽé éventuelle.
+	 */
 	public static void afficherServices(Relais r) {
 		int i = 1;
 		System.out.println("\tServices disponnibles :");
@@ -26,8 +35,11 @@ public abstract class InterfaceRelais extends Interface {
 			InterfaceService.afficherService(s);
 			i++;
 		}
-	}// Affiche les services d'un relais et leur horaires de disponibilitŽé éventuelle.
+	}
 
+	/**
+	 * Edition d'un relais en mode console.
+	 */
 	public static void editerRelais(Relais r) throws RelaisException {
 		System.out.println("Edition du relais : " + r.getNom());
 		System.out.println("Que voulez vous Žéditer ?");

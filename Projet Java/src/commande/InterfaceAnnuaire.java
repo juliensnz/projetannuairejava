@@ -8,6 +8,9 @@ import app.Relais;
 import app.Service;
 import exceptions.RelaisException;
 
+/**
+ * Interface en ligne de commande pour un annuaire.
+ */
 public abstract class InterfaceAnnuaire extends Interface {
 
 	public static void menuAnnuaire(Annuaire a) {
@@ -72,6 +75,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		}
 	}
 
+	/**
+	 * Affiche les détails d'un annuaire.
+	 */
 	public static void afficherAnnuaire(Annuaire a, boolean coord, boolean serv) {
 		System.out.println("Voici la liste des relais préŽsents dans l'annuaire : \n");
 		int i = 1;
@@ -79,8 +85,11 @@ public abstract class InterfaceAnnuaire extends Interface {
 			InterfaceRelais.afficher(r, coord, serv);
 			i++;
 		}
-	}// Affiche tout l'annuaire
-
+	}
+	
+	/**
+	 * Affiche les relais d'un annuaire "a" contenant le même service "s"
+	 */
 	public static void afficherAnnuaire(Annuaire a, Service s) {
 		System.out.println("Voici la liste des relais prŽésents dans l'annuaire offrant le service " + s.getNom() + " : \n");
 		for (Relais r : a.getMapRelais().values())
@@ -88,10 +97,11 @@ public abstract class InterfaceAnnuaire extends Interface {
 				if (si.equals(s)) InterfaceRelais.afficher(r, true, true);
 		System.out.println("Fin de la liste");
 		// A remettre dans l'annuaire
-	}// Affiche tous les relais de l'annuaire offrant le service s, comparaison
+	}
 
-	// sur les noms
-
+	/**
+	 * Interface pour l'ajout d'un relais à un annuaire
+	 */
 	public static void ajouterRelais(Annuaire a) {
 		System.out.println("CréŽation d'un relais :");
 		System.out.print("Nom : ");
@@ -107,6 +117,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		else InterfaceAnnuaire.ajouterRelais(a);
 	}
 
+	/**
+	 * Editer un relais à l'aide de la console
+	 */
 	public static void editerRelais(Annuaire a) throws RelaisException {
 		System.out.println("Choisissez le relais que vous voulez Žéditer : ");
 		InterfaceAnnuaire.afficherAnnuaire(a, false, false);
@@ -116,8 +129,11 @@ public abstract class InterfaceAnnuaire extends Interface {
 		if (!choix.isEmpty()) {
 			InterfaceRelais.editerRelais(a.getRelais(choix));
 		}
-	}// Edition d'un relais de l'annuaire (prŽexistant).
-
+	}
+	
+	/**
+	 * Trouver un relais de l'annuaire "a"
+	 */
 	public static void trouverRelais(Annuaire a) {
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("1. Trouver les relais ˆ proximitéŽ");
@@ -152,6 +168,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		}
 	}
 
+	/**
+	 * Comparer deux relais à l'aide de la console dans l'annuaire "a"
+	 */
 	public static void comparerRelais(Annuaire a) {
 		InterfaceAnnuaire.afficherAnnuaire(a, false, false);
 		System.out.println("Autre. Annuler");
@@ -167,6 +186,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		}
 	}
 
+	/**
+	 * Supprimer un relais à l'aide de la console
+	 */
 	public static void supprimerRelais(Annuaire a) {
 		InterfaceAnnuaire.afficherAnnuaire(a, false, false);
 		System.out.println("Choisissez le relais que vous voulez supprimer : ");
@@ -177,8 +199,11 @@ public abstract class InterfaceAnnuaire extends Interface {
 			a.supprimerRelais(choix);
 			System.out.println("Le relais a bien ŽtŽ supprimŽ");
 		}
-	}// Supprimer un relais de l'annuaire
+	}
 
+	/**
+	 * Trouver un relais dans un rayon (obtenu à l'aide de la console) entré en paramètre
+	 */
 	public static void trouverRayon(Annuaire a, int x, int y) {
 		System.out.print("Rayon de recherche : ");
 		int rayon = getInt();
@@ -194,6 +219,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		System.out.println("Retour au menu principal");
 	}
 
+	/**
+	 * Trouver le relais le plus proche de la position entrée en paramètre.
+	 */
 	public static void trouverProche(Map<String, Relais> map, int x, int y) {
 		Relais plusProche = map.get(0);
 		double min = plusProche.distance(x, y);
@@ -202,6 +230,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		System.out.println("Le relais le plus proche est : " + plusProche.getNom());
 	}
 
+	/**
+	 * Trouver un service à l'aide de la console dans l'annuaire "a"
+	 */
 	public static void trouverService(Annuaire a) {
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("1. Trouver un service à proximitéŽ");
@@ -225,6 +256,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		}
 	}
 
+	/**
+	 * Trouver le relais le plus proche proposant le service "s" dans l'annuaire "a"
+	 */
 	public static void serviceProche(Annuaire a, Service s) {
 		int x, y, choix, heure;
 		System.out.print("Abscisse :");
@@ -250,6 +284,9 @@ public abstract class InterfaceAnnuaire extends Interface {
 		InterfaceAnnuaire.rechercherRelais(a, x, y, s.getNom(), heure);
 	}
 
+	/**
+	 * Recherche de relais à l'aide de la console. La position l'heure et le service recherché sont entrés en paramètre
+	 */
 	public static void rechercherRelais(Annuaire a, int x, int y, String service, int heure) {
 		List<String> correspond = new ArrayList<String>();
 		Map<String, Relais> map = a.getMapRelais();

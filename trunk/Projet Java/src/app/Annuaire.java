@@ -9,7 +9,7 @@ import exceptions.RelaisException;
  * propose l'ensemble des outils dédiés à la création, modification et
  * suppression de ceux-ci.
  * 
- * @author Bury Maxime, Julien Sanchez
+ * @author Maxime Bury, Julien Sanchez
  * @see app.Relais
  * @see app.Service
  */
@@ -72,8 +72,7 @@ public class Annuaire {
 	public void retirerRelais(int x, int y) {
 		for (String key : this.annuaireRelais.keySet()) {
 			Relais r = this.annuaireRelais.get(key);
-			if (r.getX() == x && r.getY() == y)
-				this.annuaireRelais.remove(key);
+			if (r.getX() == x && r.getY() == y) this.annuaireRelais.remove(key);
 		}
 	}
 
@@ -87,8 +86,7 @@ public class Annuaire {
 	 */
 	public void retirerRelais(String nom) {
 		for (String key : this.annuaireRelais.keySet()) {
-			if (key.equals(nom))
-				this.annuaireRelais.remove(key);
+			if (key.equals(nom)) this.annuaireRelais.remove(key);
 		}
 	}
 
@@ -106,8 +104,7 @@ public class Annuaire {
 	public void retirerRelais(Service s) {
 		for (String key : this.annuaireRelais.keySet()) {
 			Relais r = this.annuaireRelais.get(key);
-			if (r.getServices().contains(s))
-				this.annuaireRelais.remove(key);
+			if (r.getServices().contains(s)) this.annuaireRelais.remove(key);
 		}
 	}
 

@@ -11,10 +11,19 @@ package exceptions;
 @SuppressWarnings("serial")
 public class RelaisException extends Exception {
 
+	/**
+	 * Affiche un message d'erreur dans la sortie standard.
+	 */
 	public RelaisException() {
 		System.out.println("Une erreur c'est produite lors de la crŽéation du relais");
 	}
 
+	/**
+	 * Affiche dans la sortie standard le message passé en paramètre.
+	 * 
+	 * @param message
+	 *            Message à afficher
+	 */
 	public RelaisException(String message) {
 		System.out.println("Une erreur c'est produite lors de la créŽation du relais");
 		System.out.println(message);

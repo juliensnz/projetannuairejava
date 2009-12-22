@@ -43,7 +43,6 @@ public class Annuaire {
 	 * @param nom
 	 *            Nom du relais, qui sert d'identifiant dans la table
 	 * @throws exceptions.RelaisException
-	 * @see app.Relais#Relais()
 	 */
 	public boolean ajouterRelais(int x, int y, String nom) {
 		Relais r = null;

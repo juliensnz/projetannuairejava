@@ -4,8 +4,14 @@ import app.Relais;
 import app.Service;
 import exceptions.RelaisException;
 
+/**
+ * Interface en ligne de commande pour un service
+ */
 public abstract class InterfaceService extends Interface {
 
+	/**
+	 * Modifications et ajout de services sur un relais
+	 */
 	public static void menuServices(Relais r) {
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("1. Ajouter un service");
@@ -33,10 +39,16 @@ public abstract class InterfaceService extends Interface {
 		}
 	}
 
+	/**
+	 * Afficher les détails d'un service (nom et plages)
+	 */
 	public static void afficherService(Service s) {
 		System.out.println(s.getNom() + " : " + s.getPlage());
 	}
 
+	/**
+	 * Ajouter un service à l'aide de la ligne de commande
+	 */
 	public static void ajouterService(Relais r) {
 		System.out.println("Ajouter un service : ");
 		System.out.print("Nom : ");
@@ -48,6 +60,9 @@ public abstract class InterfaceService extends Interface {
 		}
 	}
 
+	/**
+	 * Editer un service parmis ceux proposés dans un relais à l'aide de la ligne de commande
+	 */
 	public static void editerService(Relais r) {
 		if (r.getNbService() == 0) {
 			System.out.println("Le relais ne propose pas de service pour l'instant. Vous devez créŽer un service avant de pouvoir l'éŽditer");
@@ -66,6 +81,9 @@ public abstract class InterfaceService extends Interface {
 		}
 	}
 
+	/**
+	 * Editer un service à l'aide de la ligne de commande
+	 */
 	public static void editerService(Service s) {
 		System.out.println("Editer un service :");
 		System.out.println("1. Ajouter une plage horaire");
@@ -99,8 +117,11 @@ public abstract class InterfaceService extends Interface {
 				System.out.println("Retour au menu préŽcéŽdent");
 				break;
 		}
-	}// Editer un service.
+	}
 
+	/**
+	 * Supprimer un service parmis ceux proposés par un relais
+	 */
 	public static void supprimerService(Relais r) {
 		if (r.getNbService() == 0) {
 			System.out.println("Le relais ne propose pas de service pour l'instant. Vous devez crŽéer des services avant de pouvoir en supprimer");

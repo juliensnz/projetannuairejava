@@ -5,12 +5,13 @@ import app.Service;
 import exceptions.RelaisException;
 
 /**
- * Interface en ligne de commande pour un service
+ * Classe d'interface en ligne de commande pour un service. Elle en permet
+ * l'édition principalement.
  */
 public abstract class InterfaceService extends Interface {
 
 	/**
-	 * Modifications et ajout de services sur un relais
+	 * Menu pour effectuer les modifications et ajout de services sur un relais
 	 */
 	public static void menuServices(Relais r) {
 		System.out.println("Que voulez vous faire ?");
@@ -61,11 +62,13 @@ public abstract class InterfaceService extends Interface {
 	}
 
 	/**
-	 * Editer un service parmis ceux proposés dans un relais à l'aide de la ligne de commande
+	 * Editer un service parmis ceux proposés dans un relais à l'aide de la
+	 * ligne de commande
 	 */
 	public static void editerService(Relais r) {
 		if (r.getNbService() == 0) {
-			System.out.println("Le relais ne propose pas de service pour l'instant. Vous devez créŽer un service avant de pouvoir l'éŽditer");
+			System.out
+					.println("Le relais ne propose pas de service pour l'instant. Vous devez créŽer un service avant de pouvoir l'éŽditer");
 			InterfaceService.menuServices(r);
 		}
 		else {
@@ -124,7 +127,8 @@ public abstract class InterfaceService extends Interface {
 	 */
 	public static void supprimerService(Relais r) {
 		if (r.getNbService() == 0) {
-			System.out.println("Le relais ne propose pas de service pour l'instant. Vous devez crŽéer des services avant de pouvoir en supprimer");
+			System.out
+					.println("Le relais ne propose pas de service pour l'instant. Vous devez crŽéer des services avant de pouvoir en supprimer");
 			InterfaceService.editerService(r);
 		}
 		else {

@@ -5,12 +5,15 @@ import app.Service;
 import exceptions.RelaisException;
 
 /**
- * Interface en ligne de commande pour un relais.
+ * Classe qui propose une interface en ligne de commande pour la gestion d'un
+ * relais. Elle appelle des méthodes des autres classes d'interface, ainsi que
+ * des méthodes de la classe Relais
  */
 public abstract class InterfaceRelais extends Interface {
 
 	/**
-	 * Affiche un relais et si cela est demandé, ses coordonnées et ses services.
+	 * Affiche un relais et si cela est demandé, ses coordonnées et ses
+	 * services.
 	 */
 	public static void afficher(Relais r, boolean coord, boolean serv) {
 		System.out.println("- " + r.getNom() + " :");
@@ -18,14 +21,14 @@ public abstract class InterfaceRelais extends Interface {
 			System.out.println("\tAbscisse : " + r.getX());
 			System.out.println("\tOrdonnee : " + r.getY());
 		}
-		if (serv)
-			InterfaceRelais.afficherServices(r);
+		if (serv) InterfaceRelais.afficherServices(r);
 
 		System.out.println("*****************");
 	}
 
 	/**
-	 * Affiche les services d'un relais et leur horaires de disponibilitŽé éventuelle.
+	 * Affiche les services d'un relais et leur horaires de disponibilitŽé
+	 * éventuelle.
 	 */
 	public static void afficherServices(Relais r) {
 		int i = 1;
@@ -66,7 +69,7 @@ public abstract class InterfaceRelais extends Interface {
 			case 4:
 				InterfaceService.menuServices(r);
 				break;
-			//Case 5: On passe dans le default (quitter)
+			// Case 5: On passe dans le default (quitter)
 			default:
 				System.out.println("Retour au menu préŽcéŽdent");
 		}

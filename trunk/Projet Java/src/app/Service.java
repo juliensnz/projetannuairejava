@@ -205,5 +205,5 @@ public class Service implements Comparable<Service> {
 		if (!resultat.isEmpty()) resultat += ".";
 
 		return resultat;
-	}// Retourne les horaires d'ouverture d'un service sous forme de chaine.
+	}
 }
